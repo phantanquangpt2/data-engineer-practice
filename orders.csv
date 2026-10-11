@@ -1,11 +1,11 @@
-order_id,product,quantity,price,city
-1,Banh mi,10,15000,Hanoi
-2,Ca phe,5,25000,HCMC
-3,Pho bo,3,65000,Danang
-4,Banh mi,15,15000,HCMC
-5,Nuoc ngot,20,12000,Hanoi
-6,Tra sua,8,35000,HCMC
-7,Ca phe,12,25000,Hanoi
-8,Pho bo,2,65000,Hanoi
-9,Nuoc ngot,25,12000,HCMC
-10,Tra sua,6,35000,Danang
+order_id,product_name,category,quantity,price,city,order_date
+1,Banh mi,Do an,10,15000,Hanoi,2024-01-05
+2,Ca phe,Do uong,5,25000,HCMC,2024-01-05
+3,Nuoc ngot,Do uong,20,12000,Hanoi,2024-01-06
+4,Pho bo,Do an,3,65000,Danang,2024-01-06
+5,Tra sua,Do uong,8,35000,HCMC,2024-01-07
+6,Banh mi,Do an,15,15000,HCMC,2024-01-08
+7,Ca phe,Do uong,12,25000,Hanoi,2024-01-08
+8,Pho bo,Do an,2,65000,Hanoi,2024-01-09
+9,Nuoc ngot,Do uong,25,12000,HCMC,2024-01-09
+10,Tra sua,Do uong,6,35000,Danang,2024-01-10
