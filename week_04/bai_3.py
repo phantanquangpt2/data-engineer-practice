@@ -126,9 +126,15 @@ def get_coin_prices(coin_id, days=30):
         return pd.DataFrame(columns=["date", "price", "coin_id"])
 
     df = pd.DataFrame(data["prices"], columns=["timestamp_ms", "price"])
-    df["date"] = pd.to_datetime(df["timestamp_ms"], unit="ms", utc=True).dt.date
+    # Keep the exact UTC timestamp so hourly observations are not collapsed into dates.
+    df["timestamp_utc"] = pd.to_datetime(
+        df["timestamp_ms"], unit="ms", utc=True
+    ).dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+    df["date"] = pd.to_datetime(df["timestamp_ms"], unit="ms", utc=True).dt.strftime(
+        "%Y-%m-%d"
+    )
     df["coin_id"] = coin_id
-    return df[["date", "price", "coin_id"]]
+    return df[["timestamp_utc", "date", "price", "coin_id"]]
 
 
 def main():
@@ -172,7 +178,7 @@ def main():
 
     growth = []
     for coin_id, group in coin_prices.groupby("coin_id"):
-        group = group.sort_values("date")
+        group = group.sort_values("timestamp_utc")
         first_price = group.iloc[0]["price"]
         last_price = group.iloc[-1]["price"]
 
