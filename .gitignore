@@ -1,8 +1,14 @@
+# Python
 __pycache__/
-*.pyc
-.env
+*.py[cod]
 .venv/
 .ipynb_checkpoints/
 .vscode/
+
+# Local environment variables and secrets
+.env
+
+# Local databases
 *.db
-*.db
+*.sqlite
+*.sqlite3
